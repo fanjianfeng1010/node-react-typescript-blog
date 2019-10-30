@@ -48,6 +48,6 @@ export const createCategory = (name: string) => {
 }
 
 // 获得最近三篇文章
-export const getRencent = () => {
-  return axios.get('/api/rencent')
+export const getRecent = () => {
+  return axios.get('/api/recent')
 }

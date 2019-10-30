@@ -4,7 +4,7 @@ import { Card, Icon, Divider, Skeleton } from 'antd'
 // import { RouteComponentProps } from 'react-router-dom'
 
 import { Blog } from '../../store/articles/types'
-import { getRencent } from '../../api/blog'
+import { getRecent } from '../../api/blog'
 import './style.less'
 
 // 这个模块主要是侧栏,没有太多需要与用户交户的操作,所以使用函数组件,需要从服务器获取一次数据,
@@ -13,7 +13,7 @@ const AppSilder: React.FC<any> = () => {
   const [rencent, setRencent] = useState<Blog[]>([])
   useEffect(() => {
     ;(async function anyfunction() {
-      let res = await getRencent()
+      let res = await getRecent()
       setRencent(res.data.items)
     })()
   }, [])

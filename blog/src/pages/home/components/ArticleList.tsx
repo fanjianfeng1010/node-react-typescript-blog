@@ -6,34 +6,40 @@ import { Blog } from '../../../store/articles/types'
 import QueueAnim from 'rc-queue-anim'
 import { Link } from 'react-router-dom'
 
-const IconText = ({ type, text }: any) => (
+interface IconProps {
+  type: string
+  text?: number
+}
+const IconText = ({ type, text }: IconProps) => (
   <span>
     <Icon type={type} style={{ marginRight: 8 }} />
     {text}
   </span>
 )
 
-interface OwnProps {}
 interface PropsFromMap {
   data: Blog[]
 }
-type ComponentProps = PropsFromMap & OwnProps
+type ComponentProps = PropsFromMap
 
 class ArticleList extends Component<ComponentProps> {
   render() {
     return (
       <div>
+        {/* 服务器返回数据是按时间排序的,排在前面的数据是最早建立的,最后的数据时最新
+           建立的,为了更好的阅读体验,需要把最新的数据放在最前面
+        */}
         <List
           itemLayout="vertical"
           size="large"
-          dataSource={this.props.data}
+          dataSource={this.props.data.reverse()}
           pagination={{
             onChange: (page) => {},
             pageSize: 3
           }}
           footer={
             <div>
-              <b>呀,一不小心就拉倒末尾了</b>
+              <b>呀,一不小心就拉到末尾了</b>
             </div>
           }
           renderItem={(item: Blog) => (
@@ -41,7 +47,7 @@ class ArticleList extends Component<ComponentProps> {
               <List.Item
                 key={item.title}
                 actions={[
-                  <IconText type="star-o" text={item.viewsCount} key="list-vertical-star-o" />,
+                  <IconText type="eye-o" text={item.viewsCount} key="list-vertical-star-o" />,
                   <IconText type="like-o" text={item.likeCount} key="list-vertical-like-o" />,
                   <IconText type="message" text={item.commentCount} key="list-vertical-message" />
                 ]}
