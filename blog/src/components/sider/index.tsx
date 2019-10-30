@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 
 import { Card, Icon, Divider, Skeleton } from 'antd'
 // import { RouteComponentProps } from 'react-router-dom'
-import './style.less'
+
 import { Blog } from '../../store/articles/types'
 import { getRencent } from '../../api/blog'
+import './style.less'
 
 // 这个模块主要是侧栏,没有太多需要与用户交户的操作,所以使用函数组件,需要从服务器获取一次数据,
 // 使用了 hook effect
@@ -47,7 +48,11 @@ const AppSilder: React.FC<any> = () => {
         <div className="rencent-article-title">最新文章</div>
       </div>
       {rencent.length !== 0 ? (
-        rencent.map((item) => <p key={item._id}>{item.title}</p>)
+        rencent.map((item) => (
+          <p key={item._id} className="rencent-article-content">
+            {item.title}
+          </p>
+        ))
       ) : (
         <Skeleton />
       )}

@@ -59,7 +59,11 @@ class Article extends Component<ComponentProps, IState> {
                 <List.Item>
                   <List.Item.Meta
                     avatar={<Avatar src="https://i.loli.net/2019/10/27/Zo46FpD53HmPC9Q.jpg" />}
-                    title={<Link to={`/blog/${item._id}`}>{item.title}</Link>}
+                    title={
+                      <Link to={`/blog/${item._id}`} style={{ fontSize: '18px', color: '#43bcff' }}>
+                        {item.title}
+                      </Link>
+                    }
                     description={item.summary}
                   />
                 </List.Item>
@@ -76,7 +80,11 @@ class Article extends Component<ComponentProps, IState> {
                 <List.Item>
                   <List.Item.Meta
                     avatar={<Avatar src="https://i.loli.net/2019/10/27/Zo46FpD53HmPC9Q.jpg" />}
-                    title={<Link to={`/blog/${item._id}`}>{item.title}</Link>}
+                    title={
+                      <Link to={`/blog/${item._id}`} style={{ fontSize: '18px', color: '#43bcff' }}>
+                        {item.title}
+                      </Link>
+                    }
                     description={item.summary}
                   />
                 </List.Item>
@@ -88,12 +96,16 @@ class Article extends Component<ComponentProps, IState> {
             <Tag color="orange">随笔</Tag>
             <List
               itemLayout="horizontal"
-              dataSource={data.filter((item: Blog) => item.category.name === 'note')}
+              dataSource={data.filter((item: Blog) => item.category.name === 'notes')}
               renderItem={(item) => (
                 <List.Item>
                   <List.Item.Meta
                     avatar={<Avatar src="https://i.loli.net/2019/10/27/Zo46FpD53HmPC9Q.jpg" />}
-                    title={<Link to={`/blog/${item._id}`}>{item.title}</Link>}
+                    title={
+                      <Link to={`/blog/${item._id}`} style={{ fontSize: '18px', color: '#43bcff' }}>
+                        {item.title}
+                      </Link>
+                    }
                     description={item.summary}
                   />
                 </List.Item>

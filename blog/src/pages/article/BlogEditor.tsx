@@ -52,7 +52,7 @@ class BlogEditor extends Component<ComponentProps, EditorState> {
       if (!err) {
         // 这里添加对 summary 的处理,把 contnet的一部分内容截取成为 summary 的一部分,方便渲染
         let { title, content, category } = values,
-          summary = content.substr(0, 30)
+          summary = content.substr(0, 100)
         // 传递信息给服务器
         let data = { title, content, summary, category }
         let res = await createArticle(data)
