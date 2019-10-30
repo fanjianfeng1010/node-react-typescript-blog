@@ -63,7 +63,7 @@ class BlogContent extends Component<ComponentProps, IState> {
             <Divider type="vertical" />
           </div>
           <Divider />
-          <div style={{ textAlign: 'left' }}>
+          <div className="markdown-wrapper">
             <ReactMarkdown source={data!.content} rawSourcePos={true} escapeHtml={false} />
           </div>
         </Card>
