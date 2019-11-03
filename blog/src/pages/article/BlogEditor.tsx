@@ -73,12 +73,12 @@ class BlogEditor extends Component<ComponentProps, EditorState> {
     const { category } = this.props
     const { getFieldDecorator } = this.props.form
     return (
-      <Form onSubmit={this.handleSubmit} className="login-form">
+      <Form onSubmit={this.handleSubmit} className='login-form'>
         <Form.Item hasFeedback>
           {getFieldDecorator('category', {
             rules: [{ required: true, message: '请选择文章种类' }]
           })(
-            <Select placeholder="请选择文章种类">
+            <Select placeholder='请选择文章种类'>
               {category.map((item) => (
                 <Option value={item._id}>{item.name}</Option>
               ))}
@@ -90,8 +90,8 @@ class BlogEditor extends Component<ComponentProps, EditorState> {
             rules: [{ required: true, message: '请输入文章标题!' }]
           })(
             <Input
-              prefix={<Icon type="pen" style={{ color: 'rgba(0,0,0,.25)' }} />}
-              placeholder="title"
+              prefix={<Icon type='pen' style={{ color: 'rgba(0,0,0,.25)' }} />}
+              placeholder='title'
             />
           )}
         </Form.Item>
@@ -100,7 +100,7 @@ class BlogEditor extends Component<ComponentProps, EditorState> {
             rules: [{ required: true, message: '请开始你的大作' }]
           })(
             <Editor
-              EditorValue={this.state.value}
+              value={this.state.value}
               onChange={this.handleChange}
               onSave={(ev: any) => {
                 this.setState({
@@ -111,7 +111,7 @@ class BlogEditor extends Component<ComponentProps, EditorState> {
           )}
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit" className="login-form-button">
+          <Button type='primary' htmlType='submit' className='login-form-button'>
             发表文章
           </Button>
         </Form.Item>

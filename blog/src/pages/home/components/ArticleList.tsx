@@ -30,8 +30,8 @@ class ArticleList extends Component<ComponentProps> {
            建立的,为了更好的阅读体验,需要把最新的数据放在最前面
         */}
         <List
-          itemLayout="vertical"
-          size="large"
+          itemLayout='vertical'
+          size='large'
           dataSource={this.props.data.reverse()}
           pagination={{
             onChange: (page) => {},
@@ -43,23 +43,28 @@ class ArticleList extends Component<ComponentProps> {
             </div>
           }
           renderItem={(item: Blog) => (
-            <QueueAnim delay={1000} className="queue-simple">
+            <QueueAnim delay={1000} className='queue-simple'>
               <List.Item
                 key={item.title}
                 actions={[
-                  <IconText type="eye-o" text={item.viewsCount} key="list-vertical-star-o" />,
-                  <IconText type="like-o" text={item.likeCount} key="list-vertical-like-o" />,
-                  <IconText type="message" text={item.commentCount} key="list-vertical-message" />
+                  <IconText type='eye-o' text={item.viewsCount} key='list-vertical-star-o' />,
+                  <IconText type='like-o' text={item.likeCount} key='list-vertical-like-o' />,
+                  <IconText type='message' text={item.commentCount} key='list-vertical-message' />,
+                  <IconText
+                    type='message'
+                    text={parseFloat(item.createdAt)}
+                    key='list-vertical-message'
+                  />
                 ]}
                 extra={
                   <img
                     width={272}
-                    alt="logo"
+                    alt='logo'
                     src={item.imgUrl ? item.imgUrl : 'https://s2.ax1x.com/2019/10/30/Kf4t41.png'}
                   />
                 }>
                 <List.Item.Meta
-                  avatar={<Avatar src="https://s2.ax1x.com/2019/10/30/Kf5zSP.jpg" />}
+                  avatar={<Avatar src='https://s2.ax1x.com/2019/10/30/Kf5zSP.jpg' />}
                   title={<Link to={`/blog/${item._id}`}>{item.title}</Link>}
                   description={item.summary}
                 />

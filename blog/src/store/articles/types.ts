@@ -8,7 +8,7 @@ export interface ResponseData<T> {
 export interface Blog extends ApiResponse {
   readonly _id: string
   readonly title: string
-  readonly content?: string
+  readonly content: string
   readonly summary: string
   readonly category: Category
   readonly commentCount?: number

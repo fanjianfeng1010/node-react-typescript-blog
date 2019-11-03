@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios'
 import Qs from 'qs'
 import { APP_TOKEN_KEY } from '../config/default.config'
-
+import { Blog } from '../store/articles/types'
 axios.defaults.baseURL = process.env.NODE_ENV === 'development' ? 'http://0.0.0.0:2300' : undefined
 
 axios.defaults.withCredentials = true
@@ -16,7 +16,6 @@ axios.interceptors.request.use(
 
     if (!(config.url.includes('getFirstLoginInfo') || config.url.includes('login'))) {
       if (!token) {
-        console.log('没有授权')
       }
     }
     config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
@@ -29,9 +28,14 @@ axios.interceptors.request.use(
 )
 
 /**
- * 配置request请求时的默认参数
+ * 对返回数据进行格式化处理
  */
 axios.interceptors.response.use(function(response) {
+  if (response.data.items) {
+    let transformItems = response.data.items.map((item: Blog) => {
+      console.log(item.createdAt)
+    })
+  }
   return response
 })
 

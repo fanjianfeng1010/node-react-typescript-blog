@@ -51,21 +51,22 @@ class BlogContent extends Component<ComponentProps, IState> {
       <div>
         <Card title={data.title} style={{ textAlign: 'center' }}>
           <BackTop />
-          <div className="info">
-            <Icon type="note" />
+          <div className='info'>
+            <Icon type='note' />
             {createdAt}
-            <Divider type="vertical" />
-            <Icon type="eye" style={{ marginRight: '5px' }} />
+            <Divider type='vertical' />
+            <Icon type='eye' style={{ marginRight: '5px' }} />
             {data.viewsCount}
-            <Divider type="vertical" />
-            <Icon type="tag" style={{ marginRight: '5px' }} />
-            <Tag color="red">{data.category.name}</Tag>
-            <Divider type="vertical" />
+            <Divider type='vertical' />
+            <Icon type='tag' style={{ marginRight: '5px' }} />
+            <Tag color='red'>{data.category.name}</Tag>
+            <Divider type='vertical' />
           </div>
           <Divider />
-          <div className="markdown-wrapper">
-            <ReactMarkdown source={data!.content} rawSourcePos={true} escapeHtml={false} />
-          </div>
+
+          <div
+            dangerouslySetInnerHTML={{ __html: this.state.data.content }}
+            className='markdown-body markdown-wrapper'></div>
         </Card>
       </div>
     )

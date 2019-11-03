@@ -8,7 +8,9 @@ import { createBrowserHistory } from 'history'
 import 'antd/dist/antd.css'
 
 const initialState = window.INITIAL_REDUX_STATE
-const history = createBrowserHistory()
+const history = createBrowserHistory({
+  basename: '/'
+})
 const store = configureStore(history, initialState)
 
 ReactDOM.render(<App store={store} history={history} />, document.getElementById('root'))

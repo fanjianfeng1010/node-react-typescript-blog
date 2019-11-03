@@ -36,7 +36,7 @@ const Routes: React.SFC = () => {
                 <Route path="/home" component={AppHome} />
                 <Route path="/article" component={Article} />
                 <Route path="/about" component={About} />
-                <Route path="/blog/:id" component={BlogContent} />
+                <Route path="/blog" component={BlogContent} />
                 <Route path="/editor" component={BlogEditor} />
                 <Route path="/admin" component={Admin} />
                 <Redirect from="/" to="/home" />
