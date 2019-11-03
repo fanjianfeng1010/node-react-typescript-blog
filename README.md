@@ -1,5 +1,5 @@
 ### 这个博客是由 react + nestjs 开发
- 博客地址 [个人博客](http://49.234.190.126/home)  
+ 博客地址 [个人博客](http://49.234.190.126:2333/home)  
  
   下载:` git clone git@github.com:fanjianfeng1010/node-react-typescript-blog.git`
 
