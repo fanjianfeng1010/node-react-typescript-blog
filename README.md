@@ -1,5 +1,6 @@
 ### 这个博客是由 react + nestjs 开发
- 博客地址 [个人博客](http://49.234.190.126:2333/home)  里面包含了开发记录,欢迎查看 
+ 由于是练手项目,做完效果挺不满意的,从新开始重构,[重构仓库地址](https://github.com/fanjianfeng1010/re-blog),里面写了对博客重构的思考与开发过程.
+ 博客地址 [个人博客](http://49.234.190.126:2333/home)  
  
   下载:` git clone git@github.com:fanjianfeng1010/node-react-typescript-blog.git`
 
